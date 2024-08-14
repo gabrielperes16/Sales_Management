@@ -1,0 +1,41 @@
+<form class="c-form" 
+        {% if cliente %}
+            action="{{ url_for('cliente.atualizar_cliente', cliente_id=cliente.id) }}" 
+        {% else %}
+            action="{{ url_for('cliente.inserir_cliente') }}" 
+        {% endif %}
+
+        method="{% if cliente %}PUT{% else %}POST{% endif %}"
+
+        {% if cliente %}
+            c-swap="#cliente-{{cliente.id}}"
+        {% else %}
+            c-append="#lista-clientes"
+        {% endif %}
+
+        c-reload-container="true">
+    <div class="edit">
+        <div class="mb-3">
+            <label class="form-label">Nome</label>
+            <input type="text" class="form-control" name="nome" {% if cliente %}value="{{ cliente.nome }}"{% endif %} required autocomplete="name">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="telefone">Telefone</label>
+            <input type="tel" class="form-control" id="telefone" name="telefone" {% if cliente %}value="{{ cliente.telefone }}"{% endif %} autocomplete="tel">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="quantidade">Quantidade/mês</label>
+            <input type="number" class="form-control" id="quantidade" name="quantidade" {% if cliente %}value="{{ cliente.quantidade }}"{% endif %} required min="0" step="1" autocomplete="off">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="dia">Data</label>
+            <input type="date" class="form-control" id="dia" name="dia" {% if cliente %}value="{{ cliente.dia }}"{% endif %} autocomplete="bday">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">
+        {% if cliente %}Salvar{% else %}Criar{% endif %}
+    </button>
+</form>
