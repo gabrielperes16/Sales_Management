@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Playfair+Display:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 body {
-  font-family: 'Chakra Petch', Arial, Helvetica, sans-serif;
+  font-family: "Roboto Mono", monospace;
   background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
   margin: 0;
   padding: 0;
@@ -25,11 +24,11 @@ body {
 }
 
 table {
-  font-family: 'Chakra Petch', Arial, sans-serif;
+  font-family: "Roboto Mono", monospace;
   width: 100%;
-
-  margin-top: 100px;
-  margin-bottom: 60px;
+  min-width: 1000px;
+  margin-top: 750px;
+  margin-bottom: 750px;
   background-color: #dddddd;
   border: 2px solid black;
   border-radius: 20px;
@@ -49,13 +48,18 @@ tr:nth-child(even) {
 }
 
 .box {
+  transform: translate(-50%,-50%);
+  position: absolute;
+  top: 30%;
   color: white;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 400px;
+  background-color: rgba(0, 15, 34, 0.7);
+  padding: 15px;
+  border-radius: 15px;
+  width: 40%;
+  margin-top: 100px;
+  height: 55%;
 }
+
 
 fieldset {
   border: 3px solid dodgerblue;
@@ -65,7 +69,7 @@ fieldset {
 
 legend {
   border: 1px solid dodgerblue;
-  padding: 10px 15px;
+  padding: 10px;
   text-align: center;
   background-color: dodgerblue;
   color: white;
@@ -75,7 +79,7 @@ legend {
 
 .inputBox {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 48px;
 }
 
 .inputUser {

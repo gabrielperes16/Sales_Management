@@ -69,21 +69,6 @@ def atualizar_cliente(cliente_id):
 
 @cliente_route.route('/<int:cliente_id>')
 
-def detalhe_cliente(cliente_id):
-    for cliente in INFO_CLIENTE:
-        if cliente["id"] == cliente_id:
-            try:
-                quantidade = int(cliente["quantidade"])  # Converte a quantidade para float
-                calculo = quantidade * 7
-                resultado = f' <strong>{quantidade} X 7 = {calculo:.2f}</strong>'
-                contexto = f'O Cliente <strong>{cliente["nome"]}</strong> Comprou <strong>{cliente["quantidade"]}</strong> Garrafas'
-                return f'{contexto}{resultado}'
-            except ValueError:
-                abort(400, description="Quantidade inválida")  # Retorna erro 400 se a conversão falhar
-    
-    abort(404)  # Retorna erro 404 se o cliente não for encontrado
-
-
 @cliente_route.route('/<int:cliente_id>/delete', methods=['DELETE'])
 def deletar_cliente(cliente_id):   
     global INFO_CLIENTE
