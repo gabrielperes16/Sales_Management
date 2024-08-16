@@ -14,28 +14,33 @@
         {% endif %}
 
         c-reload-container="true">
-    <div class="edit">
-        <div class="mb-3">
-            <label class="form-label">Nome</label>
-            <input type="text" class="form-control" name="nome" {% if cliente %}value="{{ cliente.nome }}"{% endif %} required autocomplete="name">
+    
+    
+        <div class="box">
+            <form action="">
+                <fieldset>
+                    <legend><b>Fórmulário de Clientes</b></legend>
+                    <br>
+                    <div class="inputBox">
+                        <input type="text" name="nome" id="nome" class="inputUser" required>
+                        <label for="nome" class="labelInput">Nome completo</label>
+                    </div>
+                    <br><br>
+                    <div class="inputBox">
+                        <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                        <label for="telefone" class="labelInput">Telefone</label>
+                    </div>
+                    <p>Sexo:</p>
+                    <input type="radio" id="feminino" name="genero" value="feminino" required>
+                    <label for="feminino">Feminino</label>
+                    <br>
+                    <input type="radio" id="masculino" name="genero" value="masculino" required>
+                    <label for="masculino">Masculino</label>
+                    <br><br>
+                    <label for="data_Registro"><b>Data de Registro:</b></label>
+                    <input type="date" name="data_Registro" id="data_Registro" required>
+                    <br><br>
+                    <input type="submit" name="submit" id="submit">
+                </fieldset>
+            </form>
         </div>
-
-        <div class="mb-3">
-            <label class="form-label" for="telefone">Telefone</label>
-            <input type="tel" class="form-control" id="telefone" name="telefone" {% if cliente %}value="{{ cliente.telefone }}"{% endif %} autocomplete="tel">
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label" for="quantidade">Quantidade/mês</label>
-            <input type="number" class="form-control" id="quantidade" name="quantidade" {% if cliente %}value="{{ cliente.quantidade }}"{% endif %} required min="0" step="1" autocomplete="off">
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label" for="dia">Data</label>
-            <input type="date" class="form-control" id="dia" name="dia" {% if cliente %}value="{{ cliente.dia }}"{% endif %} autocomplete="bday">
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">
-        {% if cliente %}Salvar{% else %}Criar{% endif %}
-    </button>
-</form>

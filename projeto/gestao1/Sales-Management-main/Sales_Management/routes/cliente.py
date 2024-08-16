@@ -23,8 +23,7 @@ def inserir_cliente():
         "id": len(INFO_CLIENTE) + 1,
         "nome": data['nome'],
         "telefone": data['telefone'],
-        "quantidade": data['quantidade'],
-        "dia": data['dia'],
+        "data_Registro": data['data_Registro'],
 }
     
     INFO_CLIENTE.append(novo_usuario)
