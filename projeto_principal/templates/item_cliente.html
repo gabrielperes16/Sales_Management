@@ -1,0 +1,15 @@
+<tr id="cliente-{{cliente.id}}">
+    <th scope="row">{{ cliente.id }}</th>
+    <td>{{ cliente.nome }}</td>
+    <td>{{ cliente.telefone }}</td>
+    <td>{{ cliente.data_Registro}}</td>
+    <td>
+
+
+        <button class="btn btn-danger" 
+            c-delete="{{ url_for('cliente.deletar_cliente', cliente_id=cliente.id) }}"
+            c-remove-closest="tr">
+                Deletar
+        </button>
+    </td>
+</tr>
