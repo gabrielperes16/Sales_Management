@@ -4,7 +4,6 @@ body {
 }
 
 .box {
-    color: white;
     position: absolute;
     top: 40%;
     left: 50%;
@@ -13,6 +12,7 @@ body {
     padding: 15px;
     border-radius: 15px;
     width: 55%;
+    color: white; /* Define a cor do texto do formulário como branco */
 }
 
 fieldset {
@@ -73,6 +73,9 @@ legend {
     font-size: 15px;
     cursor: pointer;
     border-radius: 10px;
+}
+a{
+    color: black;
 }
 
 #submit:hover {

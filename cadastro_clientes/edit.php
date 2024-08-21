@@ -1,23 +1,26 @@
 <?php
-include_once('config.php');
-if (isset($_POST['submit'])) {
-    // Capturando os valores do formulário
+    $hostname = 'localhost';
+    $usuario= 'root';
+    $senha= '';
+    $bancodedados = 'clientes';
+    $conexao = new mysqli($hostname, $usuario, $senha, $bancodedados);
+
+if (!empty($_GET['id'])) 
+{
+    #conexao MySql
+    $id =$_GET['id'];
+
+    $sqlSelect="SELECT * FROM cliente where id=$id";
+
+    $result = $conexao->query($sqlSelect);
+    print_r($result);
+
     $nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
     $genero = $_POST['genero'];
     $data_registro = $_POST['data_Registro'];
 
-    // Inserção dos dados no banco de dados
-    $result = mysqli_query($conexao, "INSERT INTO cliente (nome, telefone, genero, data_registro) VALUES ('$nome', '$telefone', '$genero', '$data_registro')");
-
-    // Redireciona para evitar o reenvio do formulário ao atualizar a página
-    header("Location: sistema.php");
-    exit();
 }
-
-// Consulta para obter os dados
-$sql = "SELECT * FROM cliente ORDER BY id ASC";
-$result = mysqli_query($conexao, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +34,7 @@ $result = mysqli_query($conexao, $sql);
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+    <a href="sistema.php" >voltar</a>
     <div class="box">
         <form action="sistema.php" method="POST">
             <fieldset>
@@ -82,14 +86,14 @@ $result = mysqli_query($conexao, $sql);
                     echo "<td>" . $user_data['genero'] . "</td>";
                     echo "<td>" . $user_data['data_registro'] . "</td>";
                     echo "<td>
-                        <a class='btn btn-primary' href='edit.php?id=$user_data[id]'>
-                            <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
-                                <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325'/>
+                    <a class='btn btn-primary' href='edit.php?id=$user_data[id]'>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
+                            <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325'/>
                         </svg>
                     </a>
-                    </td>";
-                    }
-                    ?>
+                  </td>";
+                }
+                ?>
                 </tbody>
             </table>
         </div>
