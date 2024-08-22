@@ -13,13 +13,22 @@ if (!empty($_GET['id']))
     $sqlSelect="SELECT * FROM cliente where id=$id";
 
     $result = $conexao->query($sqlSelect);
-    print_r($result);
 
-    $nome = $_POST['nome'];
-    $telefone = $_POST['telefone'];
-    $genero = $_POST['genero'];
-    $data_registro = $_POST['data_Registro'];
-
+    if($result-> num_rows > 0)
+    {
+        while($user_data =  mysqli_fetch_assoc($result))
+        {
+        $nome = $user_data['nome'];
+        $telefone = $user_data['telefone'];
+        $genero = $user_data['genero'];
+        $data_Registro = $user_data['data_registro'];
+        }
+        echo($nome);
+    }
+    else
+    {
+        header('location: sistema.php');
+    }
 }
 ?>
 
@@ -41,23 +50,23 @@ if (!empty($_GET['id']))
                 <legend><b>Fórmulário de Clientes</b></legend>
                 <br>
                 <div class="inputBox">
-                    <input type="text" color="white" name="nome" id="nome" class="inputUser" required>
+                    <input type="text" color="white" name="nome" id="nome" class="inputUser" value="<?php echo $nome ?>"equired>
                     <label for="nome" class="labelInput">Nome completo</label>
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                    <input type="tel" name="telefone" id="telefone" class="inputUser" value="<?php echo $telefone ?>"required>
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
                 <p>Sexo:</p>
-                <input type="radio" id="feminino" name="genero" value="feminino" required>
+                <input type="radio" id="feminino" name="genero" value="feminino"value="<?php $sexo == 'feminino' ?>" required>
                 <label for="feminino">Feminino</label>
                 <br>
-                <input type="radio" id="masculino" name="genero" value="masculino" required>
+                <input type="radio" id="masculino" name="genero" value="masculino" value="<?php $sexo == 'masculino'?>"required>
                 <label for="masculino">Masculino</label>
                 <br><br>
                 <label for="data_Registro"><b>Data de Registro:</b></label>
-                <input type="date" name="data_Registro" id="data_Registro" required>
+                <input type="date" name="data_Registro" id="data_Registro"value="<?php echo $data_Registro ?>" required>
                 <br><br>
                 <input type="submit" name="submit" id="submit" value="Salvar">
             </fieldset>
@@ -84,7 +93,7 @@ if (!empty($_GET['id']))
                     echo "<td>" . $user_data['nome'] . "</td>";
                     echo "<td>" . $user_data['telefone'] . "</td>";
                     echo "<td>" . $user_data['genero'] . "</td>";
-                    echo "<td>" . $user_data['data_registro'] . "</td>";
+                    echo "<td>" . $user_data['data_Registro'] . "</td>";
                     echo "<td>
                     <a class='btn btn-primary' href='edit.php?id=$user_data[id]'>
                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
