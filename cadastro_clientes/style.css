@@ -3,18 +3,6 @@ body {
     background-image: linear-gradient(to right, rgb(20, 147, 220), rgb(17, 54, 71));
 }
 
-.box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    padding: 15px;
-    border-radius: 15px;
-    width: 55%;
-    color: white; /* Define a cor do texto do formulário como branco */
-}
-
 fieldset {
     border: 3px solid dodgerblue;
 }
@@ -83,16 +71,15 @@ a{
 }
 
 table {
-    margin-top: 800px;
     text-align: left;
     position: relative;
     bottom: 0px;
-    left: 50%; /* Posiciona a tabela no meio da tela horizontalmente */
-    transform: translateX(-50%); /* Centraliza a tabela */
+    left: 50%; 
+    transform: translateX(-50%); 
     border-collapse: separate;
     border-spacing: 0;
     border: 0.5px solid white;
-    overflow: hidden; /* Define a largura da tabela para 40% da largura da página */
+    overflow: hidden; 
 }
 
 .table-bg {

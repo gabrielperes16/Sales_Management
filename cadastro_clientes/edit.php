@@ -23,7 +23,6 @@ if (!empty($_GET['id']))
         $genero = $user_data['genero'];
         $data_Registro = $user_data['data_registro'];
         }
-        echo($nome);
     }
     else
     {
@@ -86,7 +85,6 @@ if (!empty($_GET['id']))
             </thead>
             <tbody>
                 <?php
-                // Exibe os dados dos clientes
                 while ($user_data = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
                     echo "<td>" . $user_data['id'] . "</td>";
