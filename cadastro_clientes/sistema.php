@@ -1,18 +1,26 @@
 <?php
-include_once('config.php');
-if (isset($_POST['submit'])) {
-    $nome = $_POST['nome'];
-    $telefone = $_POST['telefone'];
-    $genero = $_POST['genero'];
-    $data_registro = $_POST['data_Registro'];
+    include_once('config.php');
+    if (isset($_POST['submit'])) {
+        $nome = $_POST['nome'];
+        $telefone = $_POST['telefone'];
+        $sexo = $_POST['sexo'];
+        $quantidade = $_POST['quantidade'];
+        $data_registro = $_POST['data_Registro'];
 
-    $result = mysqli_query($conexao, "INSERT INTO cliente (nome, telefone, genero, data_registro) VALUES ('$nome', '$telefone', '$genero', '$data_registro')");
-    header("Location: sistema.php");
-    exit();
-}
-
-$sql = "SELECT * FROM cliente ORDER BY id ASC";
-$result = mysqli_query($conexao, $sql);
+        $result = mysqli_query($conexao, "INSERT INTO cliente (nome, telefone, sexo,quantidade, data_registro) VALUES ('$nome', '$telefone', '$sexo','$quantidade', '$data_registro')");
+        header("Location: sistema.php");
+        exit();
+    }
+    if(!empty($_GET['search']))
+    {
+        $data =$_GET['search'];
+        $sql = "SELECT * FROM cliente WHERE id like '%$data%' or nome like '%$data%'  ORDER BY id asc";
+    }
+    else
+    {
+        $sql = "SELECT * FROM cliente ORDER BY id ASC";
+    }
+    $result = mysqli_query($conexao, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -58,6 +66,7 @@ $result = mysqli_query($conexao, $sql);
         <form action="sistema.php" method="POST">
             <fieldset>
                 <legend><b>Fórmulário de Clientes</b></legend>
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <br>
                 <div class="inputBox">
                     <input type="text" color="white" name="nome" id="nome" class="inputUser" required>
@@ -65,15 +74,18 @@ $result = mysqli_query($conexao, $sql);
                 </div>
                 <br><br>
                 <div class="inputBox">
-                    <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                    <input type="tel" name="telefone" id="telefone" class="inputUser"  required>
                     <label for="telefone" class="labelInput">Telefone</label>
                 </div>
                 <p>Sexo:</p>
-                <input type="radio" id="feminino" name="genero" value="feminino" required>
+                <input type="radio" id="feminino" name="sexo" value="feminino"  required>
                 <label for="feminino">Feminino</label>
                 <br>
-                <input type="radio" id="masculino" name="genero" value="masculino" required>
+                <input type="radio" id="masculino" name="sexo" value="masculino" required>
                 <label for="masculino">Masculino</label>
+                <br><br>
+                <label for="quantidade"><b>Quantidade</b></label>
+                <input type="number" name="quantidade" id="quantidade"  autocomplete="off" required>
                 <br><br>
                 <label for="data_Registro"><b>Data de Registro:</b></label>
                 <input type="date" name="data_Registro" id="data_Registro" required>
@@ -98,6 +110,7 @@ $result = mysqli_query($conexao, $sql);
                     <th scope="col">Nome</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Gênero</th>
+                    <th scope="col">Quantidade</th>
                     <th scope="col">Data de Registro</th>
                     <th scope="col">Ações</th>
                 </tr>
@@ -109,7 +122,8 @@ $result = mysqli_query($conexao, $sql);
                     echo "<td>" . $user_data['id'] . "</td>";
                     echo "<td>" . $user_data['nome'] . "</td>";
                     echo "<td>" . $user_data['telefone'] . "</td>";
-                    echo "<td>" . $user_data['genero'] . "</td>";
+                    echo "<td>" . $user_data['sexo'] . "</td>";
+                    echo "<td>" . $user_data['quantidade'] . "</td>";
                     echo "<td>" . $user_data['data_registro'] . "</td>";
                     echo "<td>
                          <a class='btn btn-sm btn-primary' href='edit.php?id=$user_data[id]' title='Editar'>
@@ -128,5 +142,20 @@ $result = mysqli_query($conexao, $sql);
                     ?>
                 </tbody>
             </table>
+            <script>
+                var search = document.getElementById('pesquisar');
+
+                search.addEventListener("keydown", function(event) {
+                    if (event.key === "Enter") 
+                    {
+                        searchData();
+                    }
+                });
+
+                function searchData()
+                {
+                    window.location = 'sistema.php?search='+search.value;
+                }
+            </script>
 </html>
 
