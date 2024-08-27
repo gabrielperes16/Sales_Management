@@ -94,14 +94,11 @@ while ($user_data = mysqli_fetch_assoc($result)) {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <!-- O conteúdo do modal será preenchido pelo JavaScript -->
                 <p id="modal-quantidade"></p>
                 <p id="modal-resultado"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                <button type="button" class="btn btn-primary">Salvar mudanças</button>
-            </div>
         </div>
     </div>
 </div>

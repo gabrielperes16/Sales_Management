@@ -22,7 +22,6 @@
     }
     $result = mysqli_query($conexao, $sql);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,9 +32,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<style>
-    
-    .box {
+<style> 
+.box {
     position: absolute;
     top: 30%;
     left: 50%;
@@ -46,13 +44,13 @@
     width: 55%;
     color: white; 
 }
-    .box-search{
-        display: flex;
-        justify-content: center;
-        gap: .1%;
-        margin-top: 700px;
-        margin-bottom: 50px
-        }
+.box-search{
+    display: flex;
+    justify-content: center;
+    gap: .1%;
+    margin-top: 700px;
+    margin-bottom: 50px
+}
     table {
     background-color: rgba(0, 0, 0, 0.6);
     text-align: left;
@@ -60,10 +58,7 @@
     border-radius:15px;
     left: 50%; 
     transform: translateX(-50%); 
-
 }
-
-
     #submit {
     background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
     width: 100%;
@@ -77,9 +72,7 @@
     #submit:hover {
     background-image: linear-gradient(to right, rgb(0, 80, 172), rgb(80, 19, 195));
     }
-
 </style>
-
 <body>
     <div class="box">
         <form action="sistema.php" method="POST">
@@ -159,25 +152,21 @@
                             <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-calculator-fill' viewBox='0 0 16 16'>
                                 <path d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z'/>
                             </svg>
-                        </a>
-
+                            </a>
                             </td>";
                         echo "</tr>";
                         }
-
                     ?>
                 </tbody>
             </table>
             <script>
                 var search = document.getElementById('pesquisar');
-
-                search.addEventListener("keydown", function(event) {
+                 search.addEventListener("keydown", function(event) {
                     if (event.key === "Enter") 
                     {
                         searchData();
                     }
                 });
-
                 function searchData()
                 {
                     window.location = 'sistema.php?search='+search.value;

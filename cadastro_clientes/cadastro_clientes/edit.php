@@ -26,7 +26,6 @@ if (!empty($_GET['id']))
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,9 +47,6 @@ if (!empty($_GET['id']))
     color: white; 
         
     }
-   
-
-
     #update {
     background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
     width: 100%;
@@ -84,8 +80,8 @@ if (!empty($_GET['id']))
                 <input type="radio" id="masculino" name="sexo" value="masculino" <?php echo ($sexo == 'masculino') ? 'checked' : '';?> required>
                 <label for="masculino">Masculino</label>
                 <br>
-                <input type="radio" id="outro" name="sexo" value="outro" <?php echo ($sexo == 'outro') ? 'checked' : '';?> required>
-                <label for="outro">Outro</label>
+                <input type="radio" id="feminino" name="sexo" value="feminino" <?php echo ($sexo == 'feminino') ? 'checked' : '';?> required>
+                <label for="feminino">feminino</label>
                 <br><br>
                 <label for="quantidade"><b>Quantidade</b></label>
                 <input type="number" name="quantidade" id="quantidade"value="<?php echo $quantidade ?>" required>
