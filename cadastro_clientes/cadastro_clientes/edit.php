@@ -38,34 +38,19 @@ if (!empty($_GET['id']))
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <style>
-    .box {
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    .box{
+    margin-top: 6%;
+    margin-left:24%;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 15px;
     border-radius: 15px;
     width: 55%;
     color: white; 
-}
-    .box-search{
-        display: flex;
-        justify-content: center;
-        gap: .1%;
-        margin-top: 700px;
-        margin-bottom: 50px
-        }
-    table {
-    margin-top:700px;
-    background-color: rgba(0, 0, 0, 0.4);
-    text-align: left;
-    position: relative;
-    border-radius:15px;
-    left: 50%; 
-    transform: translateX(-50%); 
+        
+    }
+   
 
-}
+
     #update {
     background-image: linear-gradient(to right, rgb(0, 92, 197), rgb(90, 20, 220));
     width: 100%;
@@ -81,7 +66,7 @@ if (!empty($_GET['id']))
     }
 </style>
 <body>
-    <div class="box">
+    <div class="box ">
         <form action="saveEdit.php" method="POST">
             <fieldset>
                 <legend><b>Fórmulário de Clientes</b></legend>
@@ -112,43 +97,6 @@ if (!empty($_GET['id']))
                 <br></br>
                 <input type="submit" name="update" id="update" value="Salvar">
             </fieldset>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         </form>
     </div>
-    <div class='m-5'>
-        <table class="table text-white table-bg">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Gênero</th>
-                    <th scope="col">Quantidade</th>
-                    <th scope="col">Data de Registro</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                while ($user_data = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>" . $user_data['id'] . "</td>";
-                    echo "<td>" . $user_data['nome'] . "</td>";
-                    echo "<td>" . $user_data['telefone'] . "</td>";
-                    echo "<td>" . $user_data['sexo'] . "</td>";
-                    echo "<td>" . $user_data['quantidade'] . "</td>";
-                    echo "<td>" . $user_data['data_Registro'] . "</td>";
-                    echo "<td>
-                    <a class='btn btn-primary' href='edit.php?id=$user_data[id]'>
-                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
-                            <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325'/>
-                        </svg>
-                    </a>
-                  </td>";
-                }
-                ?>
-                </tbody>
-            </table>
-        </div>
-    </body>
-</html>
-

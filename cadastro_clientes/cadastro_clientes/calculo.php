@@ -22,7 +22,6 @@ else
 }
 $result = mysqli_query($conexao, $sql);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,29 +30,28 @@ $result = mysqli_query($conexao, $sql);
     <title>Scrollable Modal Example</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      
+        .btn_calculo {
+            background-color: #4ad14c;
+            border-radius: 8px;
+            border: 0.1px solid black;
+            width: 16%;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .box {
+            width: 98%;
+            margin: auto; 
+            border-radius: 15px; 
+            overflow: hidden; 
+        }
+    </style>
 </head>
-<style>
-  .btn_calculo{
-    background-color: #4ad14c;
-    border-radius: 8px;
-    border:0.1px solid black;
-    width: 16%;
-    font-size:18px;
-    font-weight:700;
-    }
-    table {
-    background-color: rgba(0, 0, 0, 0.4);
-    text-align: left;
-    position: relative;
-    border-radius:15px;
-    left: 50%; 
-    transform: translateX(-50%); 
+<body>
 
-}
-
-</style>
-<div class='m-5'>
-      <table class="table text-white table-bg">
+<div class="m-5">
+        <table class="box table m-3 table-striped table-dark position-relative top-0 start-0 rounded-3">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -81,13 +79,14 @@ $result = mysqli_query($conexao, $sql);
                             <path d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z'/>
                         </svg>
                     </a>
-                  </tr>";
-                      }
-
-                    ?>
+                    </td>";
+                    echo "</tr>";
+                }
+                ?>
             </tbody>
+        </table>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

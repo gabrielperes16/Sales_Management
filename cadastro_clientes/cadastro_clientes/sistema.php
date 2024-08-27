@@ -54,7 +54,7 @@
         margin-bottom: 50px
         }
     table {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
     text-align: left;
     position: relative;
     border-radius:15px;
@@ -122,7 +122,7 @@
         </button>
     </div>
     <div class='m-5'>
-        <table class="table text-white table-bg">
+        <table class="table m-3 table-striped table-dark position-relative ">
             <thead>
                 <tr>
                     <th scope="col">#</th>
