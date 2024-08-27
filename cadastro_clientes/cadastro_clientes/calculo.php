@@ -64,29 +64,63 @@ $result = mysqli_query($conexao, $sql);
                 </tr>
             </thead>
             <tbody>
-                <?php
-                while ($user_data = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                    echo "<td>" . $user_data['id'] . "</td>";
-                    echo "<td>" . $user_data['nome'] . "</td>";
-                    echo "<td>" . $user_data['telefone'] . "</td>";
-                    echo "<td>" . $user_data['sexo'] . "</td>";
-                    echo "<td>" . $user_data['quantidade'] . "</td>";
-                    echo "<td>" . $user_data['data_registro'] . "</td>";
-                    echo "<td>
-                    <a class='btn btn-success' href='#' data-bs-toggle='modal' data-bs-target='#modal_$user_data[id]' title='Calcular'>
-                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-calculator-fill' viewBox='0 0 16 16'>
-                            <path d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z'/>
-                        </svg>
-                    </a>
-                    </td>";
-                    echo "</tr>";
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
+<?php
+while ($user_data = mysqli_fetch_assoc($result)) {
+    $quantidade = $user_data['quantidade'];
+    echo "<tr>";
+    echo "<td>" . $user_data['id'] . "</td>";
+    echo "<td>" . $user_data['nome'] . "</td>";
+    echo "<td>" . $user_data['telefone'] . "</td>";
+    echo "<td>" . $user_data['sexo'] . "</td>";
+    echo "<td>" . $user_data['quantidade'] . "</td>";
+    echo "<td>" . $user_data['data_registro'] . "</td>";
+    echo "<td>
+        <a class='btn btn-success' href='#' data-bs-toggle='modal' data-bs-target='#calculoModal' data-quantidade='$quantidade' title='Calcular'>
+        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-calculator-fill' viewBox='0 0 16 16'>
+            <path d='M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm2 .5v2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0-.5.5m0 4v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5zM4.5 9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM4 12.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5M7.5 6a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM7 9.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zM10 6.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5m.5 2.5a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-.5-.5z'/>
+        </svg>
+        </a>
+    </td>";
+    echo "</tr>";
+}
+?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<!-- Modal -->
+<div class="modal fade" id="calculoModal" tabindex="-1" aria-labelledby="calculoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="calculoModalLabel">Resultado do Cálculo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- O conteúdo do modal será preenchido pelo JavaScript -->
+                <p id="modal-quantidade"></p>
+                <p id="modal-resultado"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Salvar mudanças</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var modalElement = document.getElementById('calculoModal');
+        var modal = new bootstrap.Modal(modalElement);
+        
+        modalElement.addEventListener('show.bs.modal', function (event) {
+        
+            var button = event.relatedTarget;
+        
+            var quantidade = button.getAttribute('data-quantidade');
+          
+            var resultado = quantidade * 3.50;
+            
+            document.getElementById('modal-quantidade').textContent = 'A quantidade é: ' + quantidade;
+            document.getElementById('modal-resultado').textContent = 'O valor total é: R$ ' + resultado.toFixed(2).replace('.', ',');
+        });
+    });
+</script>
