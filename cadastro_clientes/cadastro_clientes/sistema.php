@@ -28,7 +28,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Cliente</title>
+    <title>Sistema</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -107,8 +107,8 @@
         </form>  
     </div>
     <div class="box-search">
-        <input type="search" class="form-control w-25" placeholder="Pesquisar" id=pesquisar>
-        <button  class="btn btn-primary">
+        <input type="search" class="form-control w-25"placeholder="Pesquisar" id="pesquisar">
+        <button   onclick="searchData()" class="btn btn-primary">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
         </svg>
@@ -161,12 +161,14 @@
             </table>
             <script>
                 var search = document.getElementById('pesquisar');
-                 search.addEventListener("keydown", function(event) {
+
+                search.addEventListener("keydown", function(event) {
                     if (event.key === "Enter") 
                     {
                         searchData();
                     }
                 });
+
                 function searchData()
                 {
                     window.location = 'sistema.php?search='+search.value;
