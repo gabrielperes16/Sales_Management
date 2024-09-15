@@ -3,5 +3,11 @@
 apresentation:
 https://www.youtube.com/watch?v=ZqCVbfJUoio
 
-tuturial:
+𝙙𝙚𝙢𝙤𝙣𝙨𝙩𝙧𝙖𝙘̧𝙖̃𝙤:
+
+![Captura de tela 2024-09-14 215732](https://github.com/user-attachments/assets/1faf45c1-d0e5-4460-ba20-bf10005c7ff2)
+![Captura de tela 2024-09-14 220100](https://github.com/user-attachments/assets/3e71056c-c114-41b0-9680-0fd58a5a8d19)
+![Captura de tela 2024-09-14 220100](https://github.com/user-attachments/assets/d1891c0f-0644-403b-a699-78318b4ffb9d)
+
+𝙩𝙪𝙩𝙪𝙧𝙞𝙖𝙡:
 ![Captura de tela 2024-09-14 215558](https://github.com/user-attachments/assets/e3607093-420e-4dbb-a136-b66cf1fb3395)
