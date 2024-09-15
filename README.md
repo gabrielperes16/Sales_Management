@@ -3,48 +3,5 @@
 apresentation:
 https://www.youtube.com/watch?v=ZqCVbfJUoio
 
-How to use:
-
-1- Install XAMPP and MySQL Workbench
-
-2- Install Dependencies
-Run the following command in the terminal to install the required libraries:
-
- • pip install mysql-connector==2.2.9 php==1.2.1
-
-3-Create the Database and Table
-
- • After installing the tools and dependencies, follow these steps:
-
- • Open MySQL Workbench and connect to your MySQL server.
-
- • Run the following SQL command to create the clientes database and the cliente table:
-
--- Create the database
-CREATE DATABASE clientes;
-
-Select the database to use USE clientes;
-
-Create the cliente table
-CREATE TABLE cliente (
-
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    
-    nome VARCHAR(50),
-    
-    telefone VARCHAR(14),
-    
-    sexo VARCHAR(10),
-    
-    quantidade INT,
-    
-    data_registro DATE);
-4- Configure the Project in XAMPP
-
- • Ensure that XAMPP is running and that Apache and MySQL are active.
-
- • Place the project files in the htdocs folder of XAMPP.
-
-5- Open your browser and enter the following URL:
-
- • http://localhost/cadastro_clientes/cadastro_clientes/sistema.php
+tuturial:
+![Captura de tela 2024-09-14 215558](https://github.com/user-attachments/assets/e3607093-420e-4dbb-a136-b66cf1fb3395)
